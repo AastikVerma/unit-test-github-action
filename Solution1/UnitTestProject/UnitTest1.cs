@@ -18,7 +18,7 @@ namespace UnitTestProject
         {
             //arrange
             int num1 = 100;
-            int num2 = 350;
+            int num2 = 50;
             var result = calculator.Add(num1, num2);
             Assert.AreEqual(result, (num1+num2));
         }
