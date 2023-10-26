@@ -3,13 +3,14 @@ name: CI
 on:
   workflow_dispatch
     
-jobs:
-  build_and_test:
-
-    env:
+ env:
       BUILD_CONFIG: 'Release'
       SOLUTION: 'Solution1/UnitTest.sln'
 
+jobs:
+  build_only:
+
+   
     runs-on: ubuntu-latest
 
     steps:
@@ -27,14 +28,9 @@ jobs:
     - name: Build
       run: dotnet build $SOLUTION --configuration $BUILD_CONFIG
       
+Test:
+    needs: build_only
+    steps:
     - name: Test
       run: dotnet test $SOLUTION --configuration $BUILD_CONFIG --logger "trx;LogFileName=test-results.trx" || true
-      
-    - name: Test Report
-      uses: dorny/test-reporter@v1
-      if: always()
-      with:
-        name: DotNET Tests
-        path: "**/test-results.trx"                            
-        reporter: dotnet-trx
-        fail-on-error: false
+  
