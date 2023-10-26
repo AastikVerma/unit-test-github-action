@@ -1,7 +1,7 @@
 name: CI
 
 on:
-  [push]
+  workflow_dispatch
     
 env:
   BUILD_CONFIG: 'Release'
@@ -38,13 +38,9 @@ jobs:
   Debug:
     needs: build_only
     runs-on: ubuntu_latest
-    steps:
-    - name: Debug 
 
   Release:
     needs: Test
     runs-on: ubuntu_latest
-    steps:
-    - name: Release
 
     
