@@ -1,7 +1,7 @@
 name: CI
 
 on:
-  push
+  workflow_dispatch
     
 env:
   BUILD_CONFIG: 'Release'
@@ -28,11 +28,11 @@ jobs:
     - name: Build
       run: dotnet build $SOLUTION --configuration $BUILD_CONFIG
       
-  Test:
+  test_only:
     needs: build_only
-    runs-on: windows_latest
+    runs-on: ubuntu_latest
     steps:
-    - name: Test
+    - name: test_only
       run: dotnet test $SOLUTION --configuration $BUILD_CONFIG --logger "trx;LogFileName=test-results.trx" || true
 
 
