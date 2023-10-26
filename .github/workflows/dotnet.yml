@@ -3,9 +3,9 @@ name: CI
 on:
   workflow_dispatch
     
- env:
-      BUILD_CONFIG: 'Release'
-      SOLUTION: 'Solution1/UnitTest.sln'
+env:
+  BUILD_CONFIG: 'Release'
+  SOLUTION: 'Solution1/UnitTest.sln'
 
 jobs:
   build_only:
