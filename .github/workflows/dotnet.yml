@@ -40,10 +40,15 @@ jobs:
     runs-on: ubuntu_latest
     steps:
     - name: Debug
+    - uses: actions/checkout@v2
 
-  Release:
+    
+
+  Debug2:
     needs: Test
     runs-on: ubuntu_latest
     steps:
-    - name: release
+    - name: debug2
+    - uses: actions/checkout@v2
+
     
