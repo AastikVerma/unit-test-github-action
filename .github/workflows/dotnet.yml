@@ -35,20 +35,5 @@ jobs:
     - name: Test
       run: dotnet test $SOLUTION --configuration $BUILD_CONFIG --logger "trx;LogFileName=test-results.trx" || true
 
-  Debug:
-    needs: build_only
-    runs-on: ubuntu_latest
-    steps:
-    - name: Debug
-    - uses: actions/checkout@v2
-
-    
-
-  Debug2:
-    needs: Test
-    runs-on: ubuntu_latest
-    steps:
-    - name: debug2
-    - uses: actions/checkout@v2
 
     
