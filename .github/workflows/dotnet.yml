@@ -28,10 +28,19 @@ jobs:
     - name: Build
       run: dotnet build $SOLUTION --configuration $BUILD_CONFIG
       
-  test_only:
-    runs-on: ubuntu-latest
+  Test:
     needs: build_only
+    runs-on: ubuntu_latest
     steps:
     - name: Test
       run: dotnet test $SOLUTION --configuration $BUILD_CONFIG --logger "trx;LogFileName=test-results.trx" || true
-  
+
+  Debug:
+    needs: build_only
+    runs-on: ubuntu_latest
+
+  Release:
+    needs: test
+    runs-on: ubuntu_latest
+
+    
