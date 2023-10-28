@@ -47,6 +47,6 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Solution1_compressed
-          path: Solution1.zip
+          path: solution1.zip
 
     
