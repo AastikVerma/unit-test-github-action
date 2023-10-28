@@ -35,5 +35,18 @@ jobs:
     - name: test_only
       run: dotnet test $SOLUTION --configuration $BUILD_CONFIG --logger "trx;LogFileName=test-results.trx" || true
 
+  create-zip-archive:
+     runs-on: ubuntu-latest
+     steps: 
+      - name: checkout code
+        uses: actions/checkout@v2
+      - name: create zip archive
+        run:
+          zip -r solution1.zip Solution1
+      - name: upload zip artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Solution1_compressed
+          path: Solution1.zip
 
     
