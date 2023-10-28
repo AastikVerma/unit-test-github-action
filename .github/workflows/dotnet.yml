@@ -1,7 +1,7 @@
 name: CI
 
 on:
-  push
+  workflow_dispatch
     
 env:
   BUILD_CONFIG: 'Release'
@@ -33,12 +33,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: test_only
-      run: dotnet test $SOLUTION --configuration $BUILD_CONFIG --logger "trx"
+      run: dotnet test $SOLUTION --configuration $BUILD_CONFIG --logger "trx;LogFileName=test-results.trx" || true
     - name: upload test results
       uses: actions/upload-artifact@v2
       with:
         name: test-results
-        path: ./*.trx
+        path: test-results.trx
 
 
   create-test-archive:
