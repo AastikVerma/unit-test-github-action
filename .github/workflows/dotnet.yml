@@ -27,10 +27,6 @@ jobs:
     - name: Build
       run: dotnet build $SOLUTION --configuration $BUILD_CONFIG 
       
-  test_only:
-    needs: build_only
-    runs-on: ubuntu-latest
-    steps:
     - name: test_only
       run: dotnet test $SOLUTION --configuration $BUILD_CONFIG || true
 
