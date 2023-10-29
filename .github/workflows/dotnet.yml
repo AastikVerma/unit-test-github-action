@@ -36,22 +36,7 @@ jobs:
     steps:
     - name: test_only
       run: dotnet test $SOLUTION --configuration $BUILD_CONFIG 
-    - name: upload test results
-      uses: actions/upload-artifact@v2
-      with:
-        name: test-results
-        path: test-results.trx
 
-
-  create-test-archive:
-     runs-on: ubuntu-latest
-     needs: test_only
-     steps:
-     - name: upload test results
-       uses: actions/upload-artifact@v2
-       with:
-         name: test-results
-         path: test-results.trx
 
      
   create-zip-archive:
