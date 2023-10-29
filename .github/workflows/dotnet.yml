@@ -1,7 +1,7 @@
 name: CI
 
 on:
-  workflow_dispatch
+  push
     
 env:
   BUILD_CONFIG: 'Release'
@@ -10,10 +10,7 @@ env:
 jobs:
   build_only:
 
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
