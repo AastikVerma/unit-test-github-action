@@ -5,7 +5,7 @@ on:
 
 env:
   BUILD_CONFIG: 'RELEASE'
-  SOLUTION: 'SOLUTION1/UnitTest.sln'
+  SOLUTION: 'Solution1/UnitTest.sln'
 
 jobs:
   build_and_test:
