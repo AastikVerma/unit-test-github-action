@@ -62,5 +62,14 @@ namespace UnitTestProject
             var result = calculator.divide(num1, num2);
             Assert.AreEqual(result, (num1 / num2));
         }
+
+        [Test]
+        public void sample_test()
+        {
+            int num1=2;
+            int num2=3;
+            var result  = calculator.add_and_mul(num1,num2);
+            Assert.AreEqual(result, num1+num2 + (num1*num2));
+        }
     }
 }
